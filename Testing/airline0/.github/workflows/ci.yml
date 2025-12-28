@@ -1,42 +1,52 @@
-# Name of the workflow — shows in GitHub Actions tab
+# The name of the workflow
+# This is what you see in the GitHub Actions tab
 name: Testing
 
-# When to run this workflow
-# "push" = every time you push code to GitHub
-on: push
+# When should GitHub run this workflow?
+# - Every time you push code
+# - Every time you open or update a pull request
+# This is best practice — catches problems early
+on: [push, pull_request]
 
-# The jobs (tasks) to run
+# The main part — define the jobs (tasks) GitHub will do
 jobs:
-  test_project:  # Name of the job — can be anything
-    # Use the latest Ubuntu Linux machine (free on GitHub)
+  # Name of the job — we call it "test" (simple and clear)
+  test:
+    # Run this job on a fresh Ubuntu Linux machine (free from GitHub)
     runs-on: ubuntu-latest
 
-    # Steps = list of commands to run on the Linux machine
+    # List of steps — GitHub does these one by one
     steps:
-      # Step 1: Download your code from GitHub
-      - uses: actions/checkout@v2
-        # This is a pre-made action that copies your repository
+      # Step 1: Download (checkout) your code from GitHub
+      - uses: actions/checkout@v4
+        # "uses" means use a pre-made action
+        # actions/checkout@v4 = latest version of the official tool
+        # It copies your entire repository to the machine
 
-      # Step 2: Set up Python (GitHub does this automatically)
-      # No need to write this — GitHub uses Python by default
+      # Step 2: Set up the correct Python version
+      - uses: actions/setup-python@v4
+        # Official action to install Python
+        with:
+          python-version: '3.11'  # Use Python 3.11 (change to '3.12' if you use that)
+        # This guarantees the right Python version — very important!
 
-      # Step 3: Install Django
-      - name: Install Django
+      # Step 3: Install required packages
+      - name: Install dependencies
+        # "name" = shows in logs — helps you see what step is running
         run: |
-          pip3 install --user django
-        # pip3 = Python package installer
-        # --user = install for this user only
-        # | = allows multiple lines
+          # | means multiple lines
+          # Upgrade pip first — good practice
+          python -m pip install --upgrade pip
+          # Install Django
+          pip install django
+          # If you have other packages (like in requirements.txt), add:
+          # pip install -r requirements.txt
 
-      # Step 4: Run your tests
-      - name: Run Django unit tests
+      # Step 4: Run your Django tests
+      - name: Run tests
         run: |
-          python manage.py test
-        # This runs all your tests (the ones in tests.py)
+          # Run all tests in your project
+          # --verbosity=2 = show detailed output (each test name)
+          python manage.py test --verbosity=2
         # If tests pass → green checkmark
-        # If fail → red X
-
-      # Optional: Show more details if tests fail
-      # - name: Show test results
-      #   if: failure()
-      #   run: cat results.txt
+        # If any fail → red X and error details
