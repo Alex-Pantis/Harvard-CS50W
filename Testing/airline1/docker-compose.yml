@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"  
+
+
+# Version of docker-compose format
+# '3' = version 3 (old but still works perfectly)
+# Newer versions exist (3.8, etc.), but 3 is fine for learning
+#version: '3'
+
+# Define the services (containers) you want to run
+#services:
+  # Service 1: Database
+  #db:
+    # Use official PostgreSQL image from Docker Hub
+   # image: postgres
+    # Docker will automatically download the latest postgres image
+    # This container will run a PostgreSQL database
+    # Default username: postgres
+    # Default password: postgres
+    # Default database: postgres
+
+  # Service 2: Django web app
+  #web:
+    # Build this container from the Dockerfile in current folder (.)
+    #build: .
+    # Uses your Dockerfile to create the image with Django + code
+
+    # Mount your local folder to the container
+    # . = current folder on your computer
+    # /usr/src/app = folder inside the container
+    #volumes:
+     # - .:/usr/src/app
+    # This means: every time you change code on your computer
+    # It instantly appears in the container — perfect for development!
+
+    # Map ports
+    # "8000:8000" = host_port:container_port
+    # Your computer port 8000 → container port 8000
+    #ports:
+     # - "8000:8000"
+    # So you can open http://localhost:8000 in browser
+
+    # This service depends on the db service
+    # Docker will start db first, then web
+    # And connect them automatically
+    #depends_on:
+      #- db
