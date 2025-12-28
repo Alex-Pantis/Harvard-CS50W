@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Titlu</title>
+  </head>
+  <body>
+      <script>
+          function light(sw){
+              var pic;
+              if(sw == 0){
+                  pic = "pic_bulboff.gif"
+              }else{
+                  pic = "pic_bulbon.gif"
+              }
+              document.getElementById("myimage").src= pic;
+          }
+      </script>
+      <img id="myimage" src="pic_bulboff.gif" width="100" height="180">
+      <p>
+          <button type="button" onclick="light(1)">Light on</button>
+          <button type="button" onclick="light(0)">Light off</button>
+
+      </p>
+    <!--<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script>
+
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+
+<p>A browser without support for JavaScript will show the text written inside the noscript element.</p>-->
+  </body>
+</html>

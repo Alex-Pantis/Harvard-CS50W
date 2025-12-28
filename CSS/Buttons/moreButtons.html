@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.btn-group .button {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+}
+
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: #3e8e41;
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Bordered Button Group</h2>
+
+<p>Add borders to create a bordered button group:</p>
+
+<div class="btn-group">
+  <button class="button">Button</button>
+  <button class="button">Button</button>
+  <button class="button">Button</button>
+  <button class="button">Button</button>
+</div>
+
+<p style="clear:both"><br>Remember to clear floats after, or else will this p element also float next to the buttons.</p>
+
+
+
+
+<button class="button1" style="vertical-align:middle"><span>Hover </span></button>
+
+</body>
+</html>

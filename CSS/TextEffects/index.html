@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_light.woff);
+}
+
+@font-face {
+   font-family: myFirstFont;
+   src: url(sansation_bold.woff);
+   font-weight: bold;
+}
+
+* {
+   font-family: myFirstFont;
+}
+
+p.test1 {
+  white-space: nowrap; 
+  width: 200px; 
+  border: 1px solid #000000;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+p.test2 {
+  white-space: nowrap; 
+  width: 200px; 
+  border: 1px solid #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+p:hover{
+    overflow: visible;
+}
+
+p.test {
+  width: 11em; 
+  border: 1px solid #000000;
+  word-wrap: break-word;
+}
+
+p.test3 {
+  width: 140px; 
+  border: 1px solid #000000;
+  word-break: keep-all;
+}
+
+p.test4 {
+  width: 140px; 
+  border: 1px solid #000000;
+  word-break: break-all;
+}
+
+p.test5 {
+  writing-mode: horizontal-tb; 
+}
+
+span#test6 {
+  writing-mode: vertical-rl; 
+}
+
+p#test6 {
+  writing-mode: vertical-rl; 
+}
+</style>
+</head>
+<body>
+<a href="font.html">The @font-face Rule</a>
+<h1>The text-overflow Property</h1>
+<p>The following two paragraphs contains a long text that will not fit in the box.</p>
+
+<h2>text-overflow: clip:</h2>
+<p class="test1">This is some long text that will not fit in the box</p>
+
+<h2>text-overflow: ellipsis:</h2>
+<p class="test2">This is some long text that will not fit in the box</p>
+
+
+<h1>The word-wrap Property</h1>
+<p class="test">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+
+<h1>The word-break Property</h1>
+<p class="test3">This paragraph contains some text. This line will-break-at-hyphens.</p>
+<p class="test4">This paragraph contains some text. The lines will break at any character.</p>
+
+
+<h1>The writing-mode Property</h1>
+<p class="test5">Some text with default writing-mode.</p>
+<p>Some text with a span element with a <span id="test6">vertical-rl</span> writing-mode.</p>
+<p id="test6">Some text with writing-mode: vertical-rl.</p>
+</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Icons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    /* unvisited link */
+    a:link {
+      color: red;
+      background-color: yellow;
+      background-color: white;
+  color: black;
+  border: 2px solid green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+    
+    /* visited link */
+    a:visited {
+      color: green;
+      text-decoration: none;
+    }
+    
+    /* mouse over link */
+    a:hover {
+      color: hotpink;
+      text-decoration: none;
+    }
+    
+    /* selected link */
+    a:active {
+      color: blue;
+    }
+    </style>
+</head>
+<body>
+
+<h1>Google icon library</h1>
+
+<p>Some Google icons:</p>
+<i class="material-icons">cloud</i>
+<i class="material-icons">favorite</i>
+<i class="material-icons">attachment</i>
+<i class="material-icons">computer</i>
+<i class="material-icons">traffic</i>
+<i class="material-icons">	person_add</i>
+<br><br>
+
+<p>Styled Google icons (size and color):</p>
+<i class="material-icons" style="font-size:24px;">cloud</i>
+<i class="material-icons" style="font-size:36px;">cloud</i>
+<i class="material-icons" style="font-size:48px;color:red;">cloud</i>
+<i class="material-icons" style="font-size:60px;color:lightblue;">cloud</i>
+
+<h2>Styling a link depending on state</h2>
+
+<p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
+<p><b>Note:</b> a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.</p>
+<p><b>Note:</b> a:active MUST come after a:hover in the CSS definition in order to be effective.</p>
+
+</body>
+</html>

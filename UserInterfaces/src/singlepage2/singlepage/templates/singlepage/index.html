@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Singel Page</title>
+        <script>
+
+            window.onpopstate = function(event) {
+                console.log(event.state.section);
+                showSection(event.state.section);
+            }
+
+
+            // Function to load a section (called when button is clicked)
+            function showSection(section){
+                // Step 1: Send a request to the server for data
+                fetch(`/sections/${section}`) // Uses template literal (backticks) to insert the number, e.g., /sections/2
+                .then(response => response.text()) // Step 2: Turn the server's response into plain text
+                .then(text => { // Step 3: Do something with the text
+                    console.log(text); // Print the text to console (F12 to see it)
+                    document.querySelector('#content').innerHTML = text; // Put the text inside the div
+                });
+            }
+            // This runs when the page finishes loading
+            document.addEventListener('DOMContentLoaded', function() {
+                // Find ALL buttons and add a click listener to each
+                document.querySelectorAll('button').forEach(button => {
+                    // When clicked, get the number from data-section and call the function
+                    button.onclick = function() { // Reads data-section="1" → num = "1"
+                        const section = this.dataset.section;
+                        history.pushState({section: section}, "", `section${section}`);
+                        showSection(this.dataset.section);
+                    };
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <h1>Hello!</h1>
+        <button data-section="1">Section 1</button>
+        <button data-section="2">Section 2</button>
+        <button data-section="3">Section 3</button>
+        <div id="content">
+        <!-- Content will be loaded here -->
+        </div>
+    </body>
+</html>

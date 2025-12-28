@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>API Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #4CAF50;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .error {
+            border-left-color: #f44336;
+            background: #ffebee;
+            color: #c62828;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 API Tester</h1>
+        <div class="info">
+            <strong>Instructions:</strong>
+            <ol style="margin: 5px 0;">
+                <li>Click any button below to test an API</li>
+                <li>Press <strong>F12</strong> to open Console</li>
+                <li>Check both the page AND the console for results</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>1️⃣ Currency Exchange</h2>
+        <button onclick="testCurrency()">Get Exchange Rates</button>
+        <div id="result1"></div>
+    </div>
+
+    <div class="container">
+        <h2>2️⃣ Random User</h2>
+        <button onclick="testUser()">Get Random Person</button>
+        <div id="result2"></div>
+    </div>
+
+    <div class="container">
+        <h2>3️⃣ Random Joke</h2>
+        <button onclick="testJoke()">Get Random Joke</button>
+        <div id="result3"></div>
+    </div>
+
+    <div class="container">
+        <h2>4️⃣ Dog Picture</h2>
+        <button onclick="testDog()">Get Random Dog</button>
+        <div id="result4"></div>
+    </div>
+
+    <div class="container">
+        <h2>5️⃣ Your IP Address</h2>
+        <button onclick="testIP()">Get My IP</button>
+        <div id="result5"></div>
+    </div>
+
+    <script>
+        // Log when script loads
+        console.log('✅ Script loaded successfully!');
+        console.log('👉 Click any button to test an API');
+        console.log('-----------------------------------');
+
+        // Test 1: Currency Exchange
+        function testCurrency() {
+            console.log('🔄 Testing Currency API...');
+            document.getElementById('result1').innerHTML = '<div class="loading">Loading...</div>';
+            
+            fetch('https://api.frankfurter.app/latest?from=USD')
+                .then(response => {
+                    console.log('📥 Currency Response:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('✅ Currency Data:', data);
+                    let html = `<strong>1 USD equals:</strong><br>`;
+                    html += `EUR: ${data.rates.EUR}<br>`;
+                    html += `GBP: ${data.rates.GBP}<br>`;
+                    html += `JPY: ${data.rates.JPY}<br>`;
+                    html += `<br><small>Full data in console ↑</small>`;
+                    document.getElementById('result1').innerHTML = '<div class="result">' + html + '</div>';
+                })
+                .catch(error => {
+                    console.error('❌ Currency Error:', error);
+                    document.getElementById('result1').innerHTML = '<div class="result error">Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test 2: Random User
+        function testUser() {
+            console.log('🔄 Testing Random User API...');
+            document.getElementById('result2').innerHTML = '<div class="loading">Loading...</div>';
+            
+            fetch('https://randomuser.me/api/')
+                .then(response => {
+                    console.log('📥 User Response:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('✅ User Data:', data);
+                    let user = data.results[0];
+                    let html = `<strong>Random Person:</strong><br>`;
+                    html += `Name: ${user.name.first} ${user.name.last}<br>`;
+                    html += `Email: ${user.email}<br>`;
+                    html += `Country: ${user.location.country}<br>`;
+                    html += `<img src="${user.picture.large}" style="margin-top:10px; border-radius:50%;">`;
+                    document.getElementById('result2').innerHTML = '<div class="result">' + html + '</div>';
+                })
+                .catch(error => {
+                    console.error('❌ User Error:', error);
+                    document.getElementById('result2').innerHTML = '<div class="result error">Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test 3: Random Joke
+        function testJoke() {
+            console.log('🔄 Testing Joke API...');
+            document.getElementById('result3').innerHTML = '<div class="loading">Loading...</div>';
+            
+            fetch('https://official-joke-api.appspot.com/random_joke')
+                .then(response => {
+                    console.log('📥 Joke Response:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('✅ Joke Data:', data);
+                    let html = `<strong>${data.setup}</strong><br><br>`;
+                    html += `${data.punchline} 😄`;
+                    document.getElementById('result3').innerHTML = '<div class="result">' + html + '</div>';
+                })
+                .catch(error => {
+                    console.error('❌ Joke Error:', error);
+                    document.getElementById('result3').innerHTML = '<div class="result error">Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test 4: Dog Picture
+        function testDog() {
+            console.log('🔄 Testing Dog API...');
+            document.getElementById('result4').innerHTML = '<div class="loading">Loading...</div>';
+            
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => {
+                    console.log('📥 Dog Response:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('✅ Dog Data:', data);
+                    let html = `<strong>Random Dog:</strong><br>`;
+                    html += `<img src="${data.message}" style="max-width:100%; margin-top:10px; border-radius:10px;">`;
+                    document.getElementById('result4').innerHTML = '<div class="result">' + html + '</div>';
+                })
+                .catch(error => {
+                    console.error('❌ Dog Error:', error);
+                    document.getElementById('result4').innerHTML = '<div class="result error">Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test 5: IP Address
+        function testIP() {
+            console.log('🔄 Testing IP API...');
+            document.getElementById('result5').innerHTML = '<div class="loading">Loading...</div>';
+            
+            fetch('https://api.ipify.org?format=json')
+                .then(response => {
+                    console.log('📥 IP Response:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('✅ IP Data:', data);
+                    let html = `<strong>Your IP Address:</strong><br>${data.ip}`;
+                    document.getElementById('result5').innerHTML = '<div class="result">' + html + '</div>';
+                })
+                .catch(error => {
+                    console.error('❌ IP Error:', error);
+                    document.getElementById('result5').innerHTML = '<div class="result error">Error: ' + error.message + '</div>';
+                });
+        }
+
+        // Test on page load
+        console.log('🌐 Page loaded! Ready to test APIs.');
+        console.log('📋 Open this console (F12) and click buttons above');
+    </script>
+</body>
+</html>

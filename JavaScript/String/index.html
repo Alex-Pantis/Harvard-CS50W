@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The length Property</h2>
+
+<a href="stringMethod.html">String Methods</a>
+<a href="stringSearch.html">String Search</a>
+<a href="Template.html">Template</a>
+<p>The length of the string is:</p>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo11">Please visit Microsoft and Microsoft!</p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+<p id="demo19"></p>
+
+
+<script>
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.getElementById("demo").innerHTML = text.length;
+
+let text1 = "We are the so-called \"Vikings\" from the north.";
+document.getElementById("demo1").innerHTML = text1; 
+
+let text2 = 'It\'s alright.';
+document.getElementById("demo2").innerHTML = text2; 
+
+let text3 = "The character \\ is called backslash.";
+document.getElementById("demo3").innerHTML = text3; 
+
+// x is a string
+let x = "John";
+// y is an object
+let y = new String("John");
+document.getElementById("demo4").innerHTML =
+typeof x + "<br>" + typeof y;
+
+//When using the == operator, x and y are equal:
+//When using the === operator, x and y are not equal:
+let x1 = "John";        // x is a string
+let y1 = new String("John");  // y is an object
+document.getElementById("demo5").innerHTML = (x1==y1);
+
+let x2 = new String("John");  // x is an object
+let y2 = new String("John");  // y is an object
+document.getElementById("demo6").innerHTML = (x2==y2);
+//Comparing two JavaScript objects always returns false.
+
+//slice
+let text4 = "Apple, Banana, Kiwi";
+let part = text4.slice(7,13);
+let part1 = text.slice(-12,-6)
+document.getElementById("demo7").innerHTML = part; 
+document.getElementById("demo8").innerHTML = part; 
+
+//substring
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo9").innerHTML = str.substring(7,13);
+
+//substr second value is the number of who log the substr
+let str1 = "Apple, Banana, Kiwi";
+document.getElementById("demo10").innerHTML = str1.substr(7,10);
+
+//Replace
+function myFunction() {
+  let text = document.getElementById("demo11").innerHTML; 
+  document.getElementById("demo11").innerHTML =
+  text.replace("Microsoft","W3Schools");
+  //text.replace(/Microsoft/g,"W3Schools");
+  //text.replace(/MICROSOFT/i,"W3Schools");//To replace case insensitive, use a regular expression with an /i flag (insensitive):
+}
+
+let text5 = "I love cats. Cats are very easy to love. Cats are very popular."
+text5 = text5.replaceAll("Cats","Dogs");
+text5 = text5.replaceAll("cats","dogs");
+
+document.getElementById("demo11").innerHTML = text5;
+
+
+</script>
+
+</body>
+</html>
+

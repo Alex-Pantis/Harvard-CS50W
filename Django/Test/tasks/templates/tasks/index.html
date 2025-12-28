@@ -1,0 +1,27 @@
+{% extends "tasks/layout.html" %} <!-- Django requires this rule so it knows immediately that the template is using inheritance. -->
+
+{% block body %}
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task}}</li>
+        {% empty %}
+            <li>No task</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tasks:add' %}">Add a new task</a>
+{% endblock %}    
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body>
+        <ul>
+            {% for task in tasks %}
+             <li>{{ task}}</li>
+             {% endfor %}
+        </ul>
+      </body>
+</html> -->

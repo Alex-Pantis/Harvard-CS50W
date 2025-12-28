@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#main {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example2;
+  animation-duration: 4s;
+  animation-delay: 2s; /*-2*/
+  animation-iteration-count: infinite; 
+  animation-direction: alternate-reverse;/*riverse, alternative*/
+  /*animation: example 5s linear 2s infinite alternate;*/
+}
+
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+@keyframes example1 {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+
+@keyframes example2 {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+div {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  font-weight: bold;
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+
+#main2 {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation-name: example2;
+  animation-duration: 3s;  
+  animation-iteration-count: 1;
+  animation-fill-mode: both;/*backwards foewards*/
+}
+
+@keyframes example2 {
+  from {top: 0px;}
+  to {top: 200px; background-color: blue;}
+}
+
+</style>
+</head>
+<body>
+
+<h1>CSS Animation</h1>
+<div id="main"></div>
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+
+
+<h1>CSS Animation</h1>
+<p>The animation-timing-function property specifies the speed curve of the animation. The following example shows some of the different speed curves that can be used:</p>
+<div id="div1" >linear</div>
+<div id="div2">ease</div>
+<div id="div3">ease-in</div>
+<div id="div4">ease-out</div>
+<div id="div5">ease-in-out</div>
+
+<h1>CSS Animation</h1>
+<p>Let the div element retain the style values set by the last keyframe when the animation ends:</p>
+<div id="main2"></div>
+</body>
+</html>
+
+

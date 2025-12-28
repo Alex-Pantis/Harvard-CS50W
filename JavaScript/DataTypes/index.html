@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>JavaScript evaluates expressions from left to right. Different sequences can produce different results:</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p>You cannot perform math between a BigInt type and a Number type.</p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<script>
+/*
+JavaScript has 8 Datatypes
+1. String
+2. Number
+3. Bigint
+4. Boolean
+5. Undefined
+5. Null
+7. Symbol
+8. Object
+
+The Object Datatype
+The object data type can contain:
+
+1. An object
+2. An array
+3. A date
+*/
+let x = 16 + 4 + "Volvo";
+document.getElementById("demo1").innerHTML = x;
+let x1 = "Volvo" + 16 + 4;
+document.getElementById("demo2").innerHTML = x1;
+let answer1 = "It's alright";
+let answer2 = "He is called 'Johnny'";
+let answer3 = 'He is called "Johnny"';
+document.getElementById("demo3").innerHTML =
+answer1 + "<br>" + 
+answer2 + "<br>" + 
+answer3;
+
+let y = 123e5;
+let z = 123e-5;
+document.getElementById("demo4").innerHTML =
+y + "<br>" + z;
+
+let x2 = BigInt("123456789012345678901234567890");
+document.getElementById("demo5").innerHTML = x2; 
+
+const cars = ["Saab","Volvo","BMW"];
+document.getElementById("demo6").innerHTML = cars[0];
+
+document.getElementById("demo7").innerHTML = 
+typeof "" + "<br>" +
+typeof "John" + "<br>" + 
+typeof "John Doe";
+
+document.getElementById("demo8").innerHTML = 
+typeof 0 + "<br>" + 
+typeof 314 + "<br>" +
+typeof 3.14 + "<br>" +
+typeof (3) + "<br>" +
+typeof (3 + 4);
+
+let car;
+document.getElementById("demo9").innerHTML =
+car + "<br>" + typeof car;
+
+let car1 = "";
+document.getElementById("demo10").innerHTML =
+"The value is: " +
+car1 + "<br>" +
+"The type is: " + typeof car1;
+
+document.getElementById("demo11").innerHTML =
+"The temperature is " + toCelsius(77) + " Celsius";
+
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);}
+
+// Create an object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object:
+document.getElementById("demo12").innerHTML = person.fullName();
+
+
+
+</script>
+</body>
+</html>
+

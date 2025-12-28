@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  border: 1px solid black;
+  background-color: lightblue;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 120px;
+  width: 300px;
+}
+
+.element1 {
+  border: 1px solid black;
+  padding: 25px 10px 75px 10px;
+  background-color: yellowgreen;
+}
+
+#ex1 {
+  width: 200px;
+  background-color: yellow;
+}
+
+div.ex2 {
+  width: 200px;
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: lightblue;
+}
+
+div.ex3 {
+  width: 200px;
+  padding: 25px;
+  background-color: lightblue;
+}
+</style>
+</head>
+<body>
+
+<h2>Using individual padding properties</h2>
+
+<div>This div element has a top padding of 50px, a right padding of 30px, a bottom padding of 50px, and a left padding of 80px.</div>
+
+<div class="element1">This div element has a top padding of 25px, a right padding of 50px, a bottom padding of 75px, and a left padding of 100px.</div>
+<div id="ex1">This div is 300px wide.</div>
+
+<div class="ex2">The width of this div remains at 300px, in spite of the 50px of total left and right padding, because of the box-sizing: border-box property.
+</div>
+<div class="ex3">The width of this div is 350px, even though it is defined as 300px in the CSS.</div>
+</body>
+</html>
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React</title>
+        <!-- Load React (the brain). This is the React library — lets you write components -->
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <!-- Load ReactDOM (the hands). This puts your React components on the real page -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <!-- Load Babel (the translator). This turns JSX into normal JavaScript that browser understands -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+   
+
+        <!-- This tells Babel: "Hey, this script has JSX (React code), please translate it!" -->
+        <!-- Without this, browser would say "error" because <div>Hello</div> is not normal JS -->
+        <script type="text/babel">
+
+            function Hello(props) {
+                return(
+                    <h1>Hello, {props.name}!</h1>
+                );
+            }
+
+            function App() {
+                // JSX = HTML-like code inside JavaScript
+                // This says: "I want a div with text Hello!"
+                const x = 1;
+                const y = 2;
+                return(
+                    <div> 
+                        <h1>x + y = { x + y }</h1>
+                        <Hello name="Alex"/>
+                        <Hello name="Ron"/>
+                        <Hello name="Mike"/>
+
+                    </div>
+                );
+            }
+
+            // ReactDOM = the "hands" that put the component on the page
+            // First argument: <App/> = make one App component (note the / for self-closing)
+            // Second argument: where to put it — the div with id="app"
+            ReactDOM.render(<App/>, document.querySelector("#app"));
+
+        </script>
+    </body>
+</html>
+
+<!-- 
+    1. Imperative Programming
+    = You tell the computer EXACTLY HOW to do something, step by step.
+    Like giving a robot instructions: 
+    "Go forward 2 steps, turn left, pick up box, put box on table"
+    
+    Example in normal JavaScript (imperative):
+    const button = document.createElement('button');
+    button.textContent = 'Click me';
+    document.body.appendChild(button);
+-->
+
+<!-- 
+    2. Declarative Programming
+    = You tell the computer WHAT you want, not HOW to do it.
+    Like ordering food in a restaurant: "I want a pizza with cheese"
+    You don't say how to make it — the chef figures it out.
+    
+    React is DECLARATIVE.
+    You say: "I want a button that says Click me"
+    React figures out how to create it and update it.
+-->
+
+<!-- 
+    React = a JavaScript library made by Facebook (now Meta)
+    It helps you build user interfaces (buttons, lists, forms) in a declarative way.
+    
+    Main idea: You write "components" (small reusable pieces of UI)
+    React takes your description and shows it on the screen.
+    When data changes, React automatically updates only what needs to change.
+-->
+
+<!-- 
+    React = the brain (knows how to build components)
+    ReactDOM = the hands (puts the components into the real HTML page)
+    
+    You use ReactDOM.render() to show your React app in the browser.
+    It finds a <div id="root"></div> in HTML and puts React stuff inside it.
+-->
+
+<!-- 
+    JSX = JavaScript XML
+    It looks like HTML, but it's actually JavaScript.
+    
+    You write:
+    <h1>Hello</h1>
+    
+    But it's NOT real HTML — it's JSX syntax.
+    Browsers don't understand JSX directly.
+    
+    Example JSX:
+    const element = <h1>Hello {name}!</h1>;
+    
+    This is easier to read than pure JavaScript createElement calls.
+-->
+
+<!-- 
+    Babel = a tool that converts modern JavaScript + JSX into old plain JavaScript
+    that all browsers understand.
+    
+    Before Babel:
+    <h1>Hello</h1>  ← JSX (browsers don't know this)
+    
+    After Babel:
+    React.createElement("h1", null, "Hello")  ← plain JS (browsers understand this)
+    
+    In real React projects, Babel runs automatically.
+-->
+
+<!-- 
+    - Imperative = tell HOW (step by step)
+    - Declarative = tell WHAT (describe the result)
+    - React = declarative library for building UI
+    - ReactDOM = renders React components to real HTML
+    - JSX = HTML-like syntax inside JavaScript (easier to write)
+    - Babel = translates JSX + modern JS to plain JS for browsers
+    
+    You write JSX → Babel converts → React builds → ReactDOM shows on page
+-->

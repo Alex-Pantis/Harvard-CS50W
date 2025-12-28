@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div#div1 {
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: translate(50px,100px);
+}
+
+div {
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+div#myDiv {
+  transform: rotate(20deg);
+}
+
+div#myDiv1 {
+  transform: skew(20deg,10deg);
+}
+
+div#myDiv2 {
+  transform: matrix(1, -0.3, 0, 1, 0, 0);
+}
+
+div#myDiv3 {
+  transform: matrix(1, 0, 0.5, 1, 150, 0);
+}
+
+#myDiv4 {
+  transform: rotateX(150deg);
+}
+
+#myDiv5 {
+  transform: rotateY(150deg);
+}
+#myDiv6 {
+  transform: rotateZ(90deg);
+}
+div#div2 {
+  margin: 150px;
+  width: 200px;
+  height: 100px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: scale(2,3);
+}
+</style>
+</head>
+<body>
+
+<h1>The translate() Method</h1>
+<p>The translate() method moves an element from its current position:</p>
+
+<div id="div1">
+This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+<div>
+    This a normal div element.
+    </div>    
+    <div id="myDiv">
+    This div element is rotated clockwise 20 degrees.
+</div>
+ 
+<br><br>
+<h1>The scale() Method</h1>
+<p>The scale() method increases or decreases the size of an element.</p>
+<div id="div2">
+This div element is two times of its original width, and three times of its original height.
+</div>
+
+<h1>The skew() Method</h1>
+<p>The skew() method skews an element into a given angle.</p>
+<div>
+This a normal div element.
+</div>
+<div id="myDiv1">
+This div element is skewed 20 degrees along the X-axis, and 10 degrees along the Y-axis.
+</div>
+
+<br><br>
+<div>
+    This a normal div element.
+    </div>
+    <div id="myDiv2">
+    Using the matrix() method.
+    </div>
+    <div id="myDiv3">
+    Another use of the matrix() method.
+</div>
+
+<br>
+<div>
+This a normal div element.
+</div>
+<div id="myDiv4">
+This div element is rotated 150 degrees.
+</div>
+
+<br>
+<h1>The rotateY() Method</h1>
+<p>The rotateY() method rotates an element around its Y-axis at a given degree.</p>
+<div>
+This a normal div element.
+</div>
+<div id="myDiv5">
+This div element is rotated 150 degrees.
+</div>
+
+<br>
+<h1>The rotateZ() Method</h1>
+<p>The rotateZ() method rotates an element around its Z-axis at a given degree.</p>
+<div>
+This a normal div element.
+</div>
+<div id="myDiv6">
+This div element is rotated 90 degrees.
+</div>
+</body>
+</html>
+
+

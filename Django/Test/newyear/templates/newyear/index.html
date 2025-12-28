@@ -1,0 +1,21 @@
+{% load static %}<!--“Enable static file handling in this template.-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Is it New Year's?</title>
+        <link href="{% static 'newyear/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% if newyear %}
+            <h1>YES</h1>
+        {% else %} 
+            <h1>NO</h1>
+        {% endif %}       
+    </body>
+</html>
+
+<!--
+{% Template **tags** (logic, loops, conditions, loading modules) |
+{{ Template **variables** (values inserted into HTML)            |
+{# Template **comments** (ignored by Django)                     |
+-->

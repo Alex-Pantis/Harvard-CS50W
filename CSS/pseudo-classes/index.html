@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p#p1 {
+  display: none;
+  background-color: yellow;
+  padding: 20px;
+}
+
+div#ex1:hover p {
+  display: block;
+}
+p i:first-child {
+  color: blue;
+} 
+
+p:first-child {
+  color: blue;
+} 
+p:first-child i {
+  
+  color: red;
+} 
+q:lang(no) {
+  quotes: "~" "~";
+} 
+</style>
+</head>
+<body>
+
+
+<div id="ex1">Hover over this div element to show the p element
+  <p id="p1">Tada! Here I am!</p>
+</div>
+<p>This is some text.</p>
+<p>This is some text.</p>
+
+<div>
+  <p>This is some text.</p>
+  <p>This is some text.</p>
+</div>
+
+
+
+<div>
+  <p>I am a <i>strong</i> person. I am a <i>strong</i> person.</p>
+  <p>I am a <i>strong</i> person. I am a <i>strong</i> person.</p>
+</div>
+<p>I am a <i>strong</i> person. I am a <i>strong</i> person.</p>
+<p>I am a <i>strong</i> person. I am a <i>strong</i> person.</p>
+
+
+<p>I am a <i>strong</i> person. I am a <i>strong</i> person.</p>
+<p>I am a <i>strong</i> person. I am a <i>strong</i> person.</p>
+
+<p>Some text <q lang="no">A quote in a paragraph</q> Some text.</p>
+<p>In this example, :lang defines the quotation marks for q elements with lang="no":</p>
+</body>
+</html>
+

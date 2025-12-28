@@ -1,0 +1,31 @@
+z<!DOCTYPE html>
+<html>
+  <head>
+    <title>Id</title>
+    <style>
+        #myheader{
+            background-color: violet;
+            color: tomato;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <h2>The id Attribute</h2>
+    <p>Use CSS to style an element with the id "myHeader":</p>
+    <h1 id="myheader" >My Header</h1>
+    <h1><a href="classVsId.html">ClassVsId</a></h1>
+
+    <h2>Using The id Attribute in JavaScript</h2>
+    <p>JavaScript can access an element with a specified id by using the getElementById() method:</p>
+    <h1 id="myHeader">Hello World!</h1>
+    <button onclick="displayResult()">Change text</button>
+    <script>
+        function displayResult() {
+          document.getElementById("myHeader").innerHTML = "Have a nice day!";
+        }
+        </script>
+
+  </body>
+</html>

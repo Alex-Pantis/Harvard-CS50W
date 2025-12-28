@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+<p id="demo19"></p>
+<script>
+let text = "Please locate where 'locate' occurs!";
+document.getElementById("demo").innerHTML = text.indexOf("locate");
+document.getElementById("demo1").innerHTML = text.lastIndexOf("locate");
+document.getElementById("demo2").innerHTML = text.indexOf("John");
+document.getElementById("demo3").innerHTML = text.indexOf("locate",15);
+document.getElementById("demo4").innerHTML = text.lastIndexOf("locate", 15);
+//The lastIndexOf() methods searches backwards (from the end to the beginning), meaning: if the second parameter is 15, the search starts at position 15, and searches to the beginning of the string.
+
+//let text = "Please locate where 'locate' occurs!";
+document.getElementById("demo5").innerHTML = text.search("locate") + "   " + text.search(/locate/);
+
+text = "The rain in SPAIN stays mainly in the plain";
+const myArr = text.match("ain");
+document.getElementById("demo6").innerHTML = myArr.length + " " + myArr;
+myArr1 = text.match(/ain/);
+document.getElementById("demo7").innerHTML = myArr.length + " " + myArr;
+text = "The rain in SPAIN stays mainly in the plain"; 
+myArr1 = text.match(/ain/g);
+document.getElementById("demo8").innerHTML = myArr1.length + " " + myArr1;
+const myArr2 = text.match(/ain/gi);
+document.getElementById("demo9").innerHTML = myArr2.length + " " + myArr2;
+
+text = "I love cats. Cats are very easy to love. Cats are very popular."
+const iterator = text.matchAll("Cats");
+document.getElementById("demo10").innerHTML = Array.from(iterator);
+const iterator1 = text.matchAll(/Cats/gi);
+document.getElementById("demo12").innerHTML = Array.from(iterator1);
+
+text = "Hello world, welcome to the universe.";
+document.getElementById("demo13").innerHTML = text.includes("world");
+document.getElementById("demo14").innerHTML = text.includes("world", 12);
+
+text = "Hello world, welcome to the universe.";
+document.getElementById("demo15").innerHTML = text.startsWith("Hello");
+document.getElementById("demo16").innerHTML = text.startsWith("world");
+document.getElementById("demo17").innerHTML = text.startsWith("world", 6);
+text = "John Doe";
+document.getElementById("demo18").innerHTML = text.endsWith("Doe");
+text = "Hello world, welcome to the universe.";
+document.getElementById("demo19").innerHTML = text.endsWith("world", 11);
+</script>
+
+</body>
+</html>

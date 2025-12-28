@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String Methods</h1>
+<p>Convert string to lower case:</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Hello World!</p>
+<p id="demo1">Hello World!</p>
+<p id="demo2">Hello World!</p>
+<p id="demo3">Hello World!</p>
+<p id="demo4">Hello World!</p>
+<p id="demo5">Hello World!</p>
+<p id="demo6">Hello World!</p>
+<p id="demo7">Hello World!</p>
+<p id="demo8">Hello World!</p>
+<p id="demo9">Hello World!</p>
+<p id="demo10">Hello World!</p>
+
+
+
+
+
+
+<script>
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.toLowerCase();
+}
+
+let text1 = "Hello";
+let text2 = "World!";
+let text3 = text1.concat(" ",text2);
+document.getElementById("demo1").innerHTML = text3;
+//The concat() method can be used instead of the plus operator. These two lines do the same:
+
+let text4 = "     Hello World!     ";
+let text5 = text4.trim();
+document.getElementById("demo2").innerHTML =
+"Length text1 = " + text4.length + "<br>Length text2 = " + text5.length;
+
+let text6 = "     Hello World!     ";
+let text7 = text6.trimStart();
+document.getElementById("demo3").innerHTML =
+"Length text1 = " + text6.length + "<br>Length text2 = " + text7.length;
+//The trimStart() method works like trim(), but removes whitespace only from the start of a string.
+
+let text8 = "     Hello World!     ";
+let text9 = text8.trimEnd();
+document.getElementById("demo4").innerHTML =
+"Length text1 = " + text8.length + "<br>Length text2 = " + text9.length;
+//The trimEnd() method works like trim(), but removes whitespace only from the end of a string.
+
+let text10 = "5";
+let num = 5;
+let text11 = num.toString();
+document.getElementById("demo5").innerHTML = text10.padStart(4,"x") +  "  " + text10.padStart(7,"$")
++  "  " + text11.padStart(7,"@") + "  " + text10.padEnd(5,"&");
+
+//The charAt() method returns the character at a specified index (position) in a string:
+var text12 = "HELLO WORLD";
+document.getElementById("demo6").innerHTML = text12.charAt(0);
+//The charCodeAt() method returns the unicode of the character at a specified index in a string:
+//The method returns a UTF-16 code (an integer between 0 and 65535).
+document.getElementById("demo7").innerHTML = text12.charCodeAt(0);
+document.getElementById("demo8").innerHTML = text12[0];
+// text[0] = "A";  // Does not work
+
+let text13 = "a,b,c,d,e,f";
+const myArray = text13.split(",");
+document.getElementById("demo9").innerHTML = myArray[0];
+
+let text = "He,llo";
+const myArr = text.split("");
+text = "";
+for (let i = 0; i < myArr.length; i++) {
+  text += myArr[i] + "<br>"
+}
+document.getElementById("demo10").innerHTML = text;
+
+
+</script>
+
+</body>
+</html>

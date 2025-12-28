@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Operators</h1>
+<h2>Arithmetic operators</h2>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+/* There are different types of JavaScript operators:
+Arithmetic Operators
+Assignment Operators
+Comparison Operators
+Logical Operators
+Conditional Operators
+Type Operators */
+
+/* Arithmetic operators
++	Addition
+-	Subtraction
+*	Multiplication
+**	Exponentiation (ES2016)
+/	Division
+%	Modulus (Remainder)
+++	Increment
+--	Decrement*/
+
+let x = 11 & 5;
+document.getElementById("demo1").innerHTML = "11 % 5 = " +  x;
+let y = 5**2;
+document.getElementById("demo2").innerHTML = "5 ** 2 = " +  y;
+let z = Math.pow(5,2);
+document.getElementById("demo3").innerHTML = "Math.pow(5,2) = " +  y;
+</script>
+
+<h2>Assignment Operators</h2>
+<p id="demo4"></p>
+<h2>Shift Operators</h2>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<h2>Btiwise Assigment Opertators</h2>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<h2>Logical Assignment Operators</h2>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+
+
+<script>
+/*Operator Example Same As
+=	x = y	x = y
++=	x += y	x = x + y
+-=	x -= y	x = x - y
+*=	x *= y	x = x * 5
+/=	x /= y	x = x / y
+%=	x %= y	x = x % y
+**=	x **= y	x = x ** y*/
+
+let w = 5;
+w **= 2;
+document.getElementById("demo4").innerHTML = "w **= " +  w;
+
+/*Operator	Example	Same As
+<<=	x <<= y	x = x << y
+>>=	x >>= y	x = x >> y
+>>>=	x >>>= y	x = x >>> y*/
+let q = 5;
+// 00000000000000000000000000000101
+q <<= 2;
+// 00000000000000000000000000010100
+document.getElementById("demo5").innerHTML = "q <<= 2; q =  " +  q;
+
+let r = 5;
+//  00000000000000000000000000000101
+r >>= 2
+//  00000000000000000000000000000001
+
+document.getElementById("demo6").innerHTML = "r >>= 2; r =  " +  r;
+let b = -5;    
+ //  11111111111111111111111111111011
+b >>= 2;       
+ //  11111111111111111111111111111110
+document.getElementById("demo7").innerHTML = "b >>= 2; b =  " +  b;
+
+let a = 5; 
+//  00000000000000000000000000000101
+a >>>= 2;  
+//  00000000000000000000000000000001
+document.getElementById("demo8").innerHTML = "a >>>= 2; a =  " +  a;
+
+
+/*
+Operator	Example	Same As
+&=	x &= y	x = x & y
+^=	x ^= y	x = x ^ y
+|=	x |= y	x = x | y*/
+
+let t = 5;      // 00000000000000000000000000000101
+t &= 3;         // 00000000000000000000000000000011
+// 00000000000000000000000000000001
+document.getElementById("demo9").innerHTML = "t &= 3; t =  " +  t;
+
+let a1= 5;      // 00000000000000000000000000000101
+a1 |= 3;         // 00000000000000000000000000000011
+// 00000000000000000000000000000111
+document.getElementById("demo10").innerHTML = "a1 |= 3; a1 =  " +  a1;
+
+let a2 = 5;      // 00000000000000000000000000000101
+a2 ^= 3;         // 00000000000000000000000000000011
+// 00000000000000000000000000000110
+document.getElementById("demo11").innerHTML = "a2 |= 3; a2 =  " +  a2;
+
+/*
+Logical Assignment Operators
+Operator	Example	Same As
+&&=	x &&= y	x = x && (x = y)
+||=	x ||= y	x = x || (x = y)
+??=	x ??= y	x = x ?? (x = y)
+*/
+let x1 = 1;
+x1 &&= 2; //if(a){a = b;}
+document.getElementById("demo12").innerHTML = "Value of x1 is: " + x1;
+
+//let x2 = undefined;
+let x2 = 0; //if(a!){a = b;} 
+x2 ||= 5;
+document.getElementById("demo13").innerHTML = "Value of x2 is: " + x2;
+
+//let x3 = null;
+//let x3 = undefined;
+let x3;
+x3 ??= 5;
+document.getElementById("demo14").innerHTML = "Value of x3 is: " + x3;
+</script>
+
+</body>
+</html>

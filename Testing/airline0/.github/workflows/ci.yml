@@ -1,0 +1,42 @@
+# Name of the workflow — shows in GitHub Actions tab
+name: Testing
+
+# When to run this workflow
+# "push" = every time you push code to GitHub
+on: push
+
+# The jobs (tasks) to run
+jobs:
+  test_project:  # Name of the job — can be anything
+    # Use the latest Ubuntu Linux machine (free on GitHub)
+    runs-on: ubuntu-latest
+
+    # Steps = list of commands to run on the Linux machine
+    steps:
+      # Step 1: Download your code from GitHub
+      - uses: actions/checkout@v2
+        # This is a pre-made action that copies your repository
+
+      # Step 2: Set up Python (GitHub does this automatically)
+      # No need to write this — GitHub uses Python by default
+
+      # Step 3: Install Django
+      - name: Install Django
+        run: |
+          pip3 install --user django
+        # pip3 = Python package installer
+        # --user = install for this user only
+        # | = allows multiple lines
+
+      # Step 4: Run your tests
+      - name: Run Django unit tests
+        run: |
+          python manage.py test
+        # This runs all your tests (the ones in tests.py)
+        # If tests pass → green checkmark
+        # If fail → red X
+
+      # Optional: Show more details if tests fail
+      # - name: Show test results
+      #   if: failure()
+      #   run: cat results.txt

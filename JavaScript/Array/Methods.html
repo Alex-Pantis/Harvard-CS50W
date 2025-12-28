@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Array Methods</h2> 
+<h2>toString()</h2>
+<p>The toString() method returns an array as a comma separated string:</p>
+
+<p id="demo"></p>
+<h2>join()</h2> 
+<p id="demo1"></p>
+<h2>pop()</h2>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<h2>push()</h2>
+<p id="demo4"></p>
+<h2>shift()</h2>
+<p id="demo5"></p>
+<h2>unshift()</h2>
+<p id="demo6"></p>
+<h2>delete()</h2>
+<p id="demo7"></p>
+<h2>concat()</h2>
+<p id="demo8"></p>
+<h2>splice()</h2>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<h2>slice()</h2>
+<p id="demo11"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+<p id="demo19"></p>
+<p id="demo20"></p>
+<p id="demo21"></p>
+<p id="demo22"></p>
+
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let allfruits = fruits.toString();
+document.getElementById("demo").innerHTML = allfruits;
+
+document.getElementById("demo1").innerHTML = fruits.join(" * ");
+
+//fruits.pop(); //
+document.getElementById("demo2").innerHTML = fruits.pop();
+document.getElementById("demo3").innerHTML = fruits;
+
+fruits.push("Kiwi");
+//The push() method returns the new array length
+//document.getElementById("demo1").innerHTML = fruits.push("Kiwi");
+document.getElementById("demo4").innerHTML = fruits;
+
+fruits.shift();
+//The shift() method returns the element that was shifted out.
+//document.getElementById("demo1").innerHTML = fruits.shift();
+document.getElementById("demo5").innerHTML = fruits;
+
+fruits.unshift("Lemon");
+//The unshift() method returns the length of the new array
+//document.getElementById("demo1").innerHTML = fruits.unshift("Lemon");
+document.getElementById("demo6").innerHTML = fruits;
+
+delete fruits[0];
+document.getElementById("demo7").innerHTML =
+"The first fruit is: " + fruits[0];
+fruits[0] = "lemon";
+
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+const myChildren = myGirls.concat(myBoys, "Alex"); //The concat() method can also take strings as arguments:
+document.getElementById("demo8").innerHTML = myChildren;
+
+fruits.splice(2, 1, "Lemon", "Kiwi");
+document.getElementById("demo9").innerHTML = fruits;
+fruits.splice(3, 1);//Remove 
+document.getElementById("demo10").innerHTML = fruits;
+
+const citrus = fruits.slice(1);
+document.getElementById("demo11").innerHTML = fruits + "<br><br>" + citrus;
+const citrus1 = fruits.slice(1,3);
+document.getElementById("demo12").innerHTML = fruits + "<br><br>" + citrus1;
+
+</script>
+
+</body>
+</html>

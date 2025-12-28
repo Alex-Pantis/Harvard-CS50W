@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Titlu</title>
+      <!--If the table has collapsed borders, border-spacing has no effect.-->
+      <style>
+        table, th, td{
+            border: 4px solid black;
+            border-collapse:separate;
+        }
+        th, td{
+            padding: 15px;
+        }
+        th{
+            text-align: center;
+        }
+        table{
+            border-spacing: 15px;
+            border-color: blueviolet;
+        }
+        table#t01{
+            width: 100%;
+            background-color: rgb(255, 250, 255);
+        }
+        table#t02 tr:nth-child(odd){
+            background-color: rgba(56, 190, 190, 0.4);
+        }
+        table#t02 td:nth-child(odd){
+            background-color: rgba(56, 190, 190, 0.4);
+        }
+         table#potiCumDoresti tr:nth-child(even) {
+          background-color: #1f9c9c;
+
+        }
+        tr:hover {
+            background-color: rgb(42, 165, 91);
+
+        }
+
+    </style>
+  </head>
+  <body>
+    <table style="width:100%" id="potiCumDoresti">
+      <tr>
+        <th>Firstname</th>
+        <td>Jill</td>
+        <td>Eve</td>
+      </tr>
+      <tr>
+        <th>Lastname</th>
+        <td>Smith</td>
+        <td>Jackson</td>
+      </tr>
+      <tr>
+        <th>Age</th>  
+        <td>50</td>
+        <td>94</td>
+      </tr>
+    </table>
+    <br>
+    <caption> Agenda </caption>
+    <table style="width:100%" id="t02">
+        <tr>
+          <th>Name</th>
+          <th colspan="3">Telephone</th>
+        </tr>
+        <tr>
+          <td>Bill Gates</td>
+          <td>55577854</td>
+          <td>55577855</td>
+          <td>55577855</td>
+        </tr>
+        <tr>
+          <td>Alex</td>
+          <td>55577855</td>
+          <td>55577855</td>
+          <td>55577855</td>
+        </tr>
+        <tr>
+          <td>Alex</td>
+          <td>55577855</td>
+          <td>55577855</td>
+          <td>55577855</td>
+        </tr>
+      </table>
+
+      <table id="t01">
+        <colgroup>
+          <col span="1">
+          <col span="1" style="background-color: #D6EEEE">
+        </colgroup>
+        <tr>
+          <th>Name:</th>
+          <td>Bill Gates</td>
+        </tr>
+        <tr>
+          <th rowspan="2">Telephone:</th>
+          <td>55577854</td>
+        </tr>
+        <tr>
+          <td>55577855</td>
+        </tr>
+      </table>
+  </body>
+</html>

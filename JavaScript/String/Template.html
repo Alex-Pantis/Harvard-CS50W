@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Template Literals</h2>
+
+<p>Template literals use back-ticks (``) to define a string:</p>
+<p>Template literals are not supported in Internet Explorer.</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+
+<script>
+let text = `Hello world!`;
+document.getElementById("demo").innerHTML = text;
+
+text = `He's often called "Johnny"`;
+document.getElementById("demo1").innerHTML = text;
+
+text =
+`The quick
+brown fox
+jumps over
+the lazy dog`;
+document.getElementById("demo2").innerHTML = text;
+
+let firstName = "John";
+let lastName = "Doe";
+text = `Welcome ${firstName}, ${lastName}!`;
+document.getElementById("demo3").innerHTML = text;
+
+let price = 10;
+let VAT = 0.25;
+let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+document.getElementById("demo4").innerHTML = total;
+
+let header = "Templates Literals";
+let tags = ["template literals", "javascript", "es6"];
+
+let html = `<h2>${header}</h2><ul>`;
+
+for (const x of tags) {
+  html += `<li>${x}</li>`;
+}
+
+html += `</ul>`;
+document.getElementById("demo6").innerHTML = html;
+
+</script>
+
+</body>
+</html>
