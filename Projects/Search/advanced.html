@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .top-right {
+            text-align: right;
+            margin-bottom: 50px;
+        }
+        
+        .top-right a {
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .advanced-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #d93025;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            width: 200px;
+            text-align: right;
+            padding-right: 20px;
+            font-size: 13px;
+        }
+        
+        .form-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #d9d9d9;
+            border-radius: 1px;
+        }
+        
+        .button-container {
+            text-align: right;
+            margin-top: 30px;
+        }
+        
+        .advanced-button {
+            background-color: #4285f4;  /* Google blue */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .advanced-button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right">
+        <a href="index.html">Google Search</a>
+    </div>
+    
+    <div class="advanced-container">
+        <h1>Advanced Search</h1>
+        
+        <form action="https://www.google.com/search">
+            <div class="form-row">
+                <label class="form-label">all these words:</label>
+                <input class="form-input" type="text" name="as_q">
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label">this exact word or phrase:</label>
+                <input class="form-input" type="text" name="as_epq">
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label">any of these words:</label>
+                <input class="form-input" type="text" name="as_oq">
+            </div>
+            
+            <div class="form-row">
+                <label class="form-label">none of these words:</label>
+                <input class="form-input" type="text" name="as_eq">
+            </div>
+            
+            <div class="button-container">
+                <input class="advanced-button" type="submit" value="Advanced Search">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
