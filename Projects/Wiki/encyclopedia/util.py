@@ -6,7 +6,8 @@ from django.core.files.storage import default_storage
 def list_entries():
     _, filenames = default_storage.listdir("entries")
     return list(sorted(re.sub(r"\.md$", "", filename)
-                for filename in filenames if filename.endswith(".md")))
+                for filename in filenames 
+                if filename.endswith(".md")))
 
 #Saves an encyclopedia entry, given its title and Markdown
 #content. If an existing entry with the same title already exists,
