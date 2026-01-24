@@ -46,3 +46,28 @@ def search(request):
         "query": query,
         "entries": matching_entries
     })
+
+def new_page(request):
+    # Check if user is submitting the form
+    if request.method == "POST":
+        # Get data from the form
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        
+        # Check if entry already exists
+        if util.get_entry(title) is not None:
+            # Entry exists! Show error
+            return render(request, "encyclopedia/new.html", {
+                "error": "An entry with this title already exists!",
+                "title": title,
+                "content": content
+            })
+        
+        # Save the new entry
+        util.save_entry(title, content)
+        
+        # Redirect to the new entry's page
+        return redirect('entry', title=title)
+    
+    # User is just viewing the form (GET request)
+    return render(request, "encyclopedia/new.html")
