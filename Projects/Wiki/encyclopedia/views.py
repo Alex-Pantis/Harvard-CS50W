@@ -71,3 +71,31 @@ def new_page(request):
     
     # User is just viewing the form (GET request)
     return render(request, "encyclopedia/new.html")
+
+def edit_page(request, title):
+    # Check if user is submitting edits
+    if request.method == "POST":
+        # Get the new content
+        content = request.POST.get('content')
+        
+        # Save it (overwrites existing file)
+        util.save_entry(title, content)
+        
+        # Redirect back to the entry page
+        return redirect('entry', title=title)
+    
+    # User is viewing the edit form
+    # Get current content of the entry
+    content = util.get_entry(title)
+    
+    # Check if entry exists
+    if content is None:
+        return render(request, "encyclopedia/error.html", {
+            "message": f"Cannot edit '{title}' because it doesn't exist."
+        })
+    
+    # Show edit form with current content
+    return render(request, "encyclopedia/edit.html", {
+        "title": title,
+        "content": content
+    })
