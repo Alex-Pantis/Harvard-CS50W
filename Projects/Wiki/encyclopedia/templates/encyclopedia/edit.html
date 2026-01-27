@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1>Edit {{ title }}</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 15px;">
+            <label for="content">Page Content (Markdown):</label><br>
+            <textarea name="content" id="content" required 
+                      style="width: 80%; height: 400px; padding: 8px; font-family: monospace;">{{ content }}</textarea>
+        </div>
+        
+        <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+            Save Changes
+        </button>
+        
+        <a href="{% url 'entry' title %}" style="margin-left: 10px; padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 4px;">
+            Cancel
+        </a>
+    </form>
+    
+{% endblock %}

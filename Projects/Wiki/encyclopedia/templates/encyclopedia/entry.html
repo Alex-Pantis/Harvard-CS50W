@@ -6,6 +6,10 @@
 
 {% block body %}
     <h1>{{ title }}</h1>
+
+    <a href="{% url 'edit' title %}" style="display: inline-block; margin-bottom: 20px; padding: 8px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px;">
+        Edit this page
+    </a>
     
     {{ content|safe }}
     

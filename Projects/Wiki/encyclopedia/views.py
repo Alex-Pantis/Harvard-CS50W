@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from . import util
+import random
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -99,3 +100,13 @@ def edit_page(request, title):
         "title": title,
         "content": content
     })
+
+def random_page(request):
+    # Get all entry names
+    entries = util.list_entries()
+    
+    # Pick a random one
+    random_entry = random.choice(entries)
+    
+    # Go to that entry's page
+    return redirect('entry', title=random_entry)
